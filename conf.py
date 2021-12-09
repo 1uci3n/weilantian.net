@@ -19,7 +19,7 @@ enable_jsdelivr = {
 }
 
 # 站点设置
-site_name = "技术总结"
+site_name = "搞点儿技术总结"
 site_logo = "${static_prefix}logo.png"
 site_build_date = "2021-12-18T16:51+08:00"
 author = "魏蓝天"
