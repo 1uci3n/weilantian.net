@@ -19,13 +19,13 @@ enable_jsdelivr = {
 }
 
 # 站点设置
-site_name = "就写点研究吧"
+site_name = "技术总结"
 site_logo = "${static_prefix}logo.png"
 site_build_date = "2021-12-18T16:51+08:00"
 author = "魏蓝天"
 email = "lantian.wei.it@gmail.com"
 author_homepage = "https://www.weilantian.net"
-description = "只坚持一种正义。我的正义。"
+description = "就搞点儿研究吧,您叻"
 key_words = ['Maverick', '熊猫小A', 'Galileo', 'blog']
 language = 'zh-CN'
 external_links = [
@@ -59,21 +59,21 @@ nav = [
 ]
 
 social_links = [
-    {
-        "name": "Twitter",
-        "url": "https://twitter.com/AlanDecode",
-        "icon": "gi gi-twitter"
-    },
+    # {
+    #     "name": "Twitter",
+    #     "url": "https://twitter.com/AlanDecode",
+    #     "icon": "gi gi-twitter"
+    # },
     {
         "name": "GitHub",
-        "url": "https://github.com/AlanDecode",
+        "url": "https://github.com/1uci3n",
         "icon": "gi gi-github"
-    },
-    {
-        "name": "Weibo",
-        "url": "https://weibo.com/5245109677/",
-        "icon": "gi gi-weibo"
     }
+    # {
+    #     "name": "Weibo",
+    #     "url": "https://weibo.com/5245109677/",
+    #     "icon": "gi gi-weibo"
+    # }
 ]
 
 head_addon = r'''
