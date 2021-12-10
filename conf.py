@@ -21,24 +21,24 @@ enable_jsdelivr = {
 # 站点设置
 site_name = "搞点儿技术总结"
 site_logo = "${static_prefix}logo.png"
-site_build_date = "2021-12-18T16:51+08:00"
+site_build_date = "2021-12-31T16:51+08:00"
 author = "魏蓝天"
 email = "lantian.wei.it@gmail.com"
 author_homepage = "https://www.weilantian.net"
 description = "就搞点儿研究吧,您叻"
-key_words = ['Maverick', '熊猫小A', 'Galileo', 'blog']
+key_words = ['Maverick', 'Galileo', 'blog']
 language = 'zh-CN'
 external_links = [
     {
         "name": "Maverick",
         "url": "https://github.com/AlanDecode/Maverick",
         "brief": "🏄‍ Go My Own Way."
-    },
-    {
-        "name": "三無計劃",
-        "url": "https://www.imalan.cn",
-        "brief": "熊猫小A的主页。"
     }
+    # {
+    #     "name": "三無計劃",
+    #     "url": "https://www.imalan.cn",
+    #     "brief": "熊猫小A的主页。"
+    # }
 ]
 nav = [
     {
@@ -68,12 +68,12 @@ social_links = [
         "name": "GitHub",
         "url": "https://github.com/1uci3n",
         "icon": "gi gi-github"
+    },
+    {
+        "name": "Google Scholar",
+        "url": "https://scholar.google.com/citations?hl=ja&user=I5PJIJ4AAAAJ",
+        "icon": "gi gi-google-scholar"
     }
-    # {
-    #     "name": "Weibo",
-    #     "url": "https://weibo.com/5245109677/",
-    #     "icon": "gi gi-weibo"
-    # }
 ]
 
 head_addon = r'''
