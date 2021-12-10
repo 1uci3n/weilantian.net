@@ -4,7 +4,7 @@ title: 关于
 slug: about
 date: 2021/12/10 23:30:00
 status: publish
-author:魏蓝天
+author: 魏蓝天
 categories: 
   - Maverick
   - Dev
