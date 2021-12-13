@@ -21,7 +21,7 @@ enable_jsdelivr = {
 # 站点设置
 site_name = "搞点儿技术总结"
 site_logo = "${static_prefix}logo.png"
-site_build_date = "2021-12-31T16:51+08:00"
+site_build_date = "2021-12-13T16:15+09:00"
 author = "魏蓝天"
 email = "lantian.wei.it@gmail.com"
 author_homepage = "https://www.weilantian.net"
