@@ -1,15 +1,15 @@
 ---
 layout: post
-title: 我的第一篇文章
-slug: my-first-awesome-post
+title: 限定等长系数的计算方法
+slug: demo
 date: 2021-12-31 20:34
 status: hidden
 author: 魏蓝天
 categories: 
   - 默认分类
 tags: 
-  - 博客
-  - GitHub
+  - 压缩感知
+  - 限定等长系数
 excerpt: Hello World!
 ---
 
