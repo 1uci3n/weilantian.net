@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hello World!
-slug: typography
+slug: type
 date: 2019-12-18 16:50
 status: hidden
 author: AlanDecode
