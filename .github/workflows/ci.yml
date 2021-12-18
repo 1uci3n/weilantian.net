@@ -26,7 +26,7 @@ jobs:
       run: |
         cd ./Maverick
         python -m pip install --upgrade pip
-        pip install -r prod_req.txt
+        pip install -r requirements.txt
 
     # Get build cache
     - uses: actions/checkout@v2
@@ -42,7 +42,7 @@ jobs:
         rm -rf ./build_cache/.git
 
         cd ./Maverick
-        python ./build.py -c "../conf.py"
+        python3 mvrk.py --config /home/runner/work/weilantian.net/config.py
 
         # 保存图片缓存
         cd ..
