@@ -13,6 +13,12 @@ template = {
     "type": "local",
     "path": "../Galileo"
 }
+valine = {
+    "enable": True,
+    "el": '#vcomments',
+    "appId": "foKPLEXsBJn05qaWV4zjRd0Q-MdYXbMMI",
+    "appKey": "3mddA3xrDkeiX7XwkGHgCF2l",
+}
 enable_jsdelivr = {
     "enabled": True,
     "repo": "1uci3n/weilantian.net@gh-pages"
