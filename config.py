@@ -21,7 +21,7 @@ valine = {
     "appKey": "3mddA3xrDkeiX7XwkGHgCF2l",
 }
 enable_jsdelivr = {
-    "enabled": False,
+    "enabled": True,
     "repo": "1uci3n/weilantian.net@gh-pages"
 }
 
