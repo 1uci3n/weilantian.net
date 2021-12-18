@@ -42,7 +42,7 @@ jobs:
         rm -rf ./build_cache/.git
 
         cd ./Maverick
-        python ./build.py -c "../conf.py"
+        python mvrk.py --config ../config.py
 
         # 保存图片缓存
         cd ..
