@@ -2,5 +2,5 @@
 	path = Maverick
 	url = https://github.com/AlanDecode/Maverick.git
 [submodule "Maverick-Theme-Galileo"]
-	path = Maverick-Theme-Galileo
-	url = git@github.com:1uci3n/Maverick-Theme-Galileo.git
+	path = Galileo
+	url = https://github.com/1uci3n/Maverick-Theme-Galileo.git
