@@ -79,6 +79,10 @@
                 </a>
                 
                 
+                <span class="leancloud_visitors" 
+                    id="/archives/my-first-post/" 
+                    data-flag-title="我的第一篇文章"> · <i class="leancloud-visitors-count"></i> Views</span>
+                
             </span>
             <div class="ga-content_body">
                 <p>这是我的第一篇文章。文章使用 GitHub 管理，并通过 GitHub Actions 自动构建与发布！</p><p>这个站点主要用来post一些自己的研究方面的总结，以及一些好玩的技术分享。</p><p>先立一个Flag为敬，每周至少一更！</p>
@@ -117,10 +121,10 @@
     
         <script>
             var initValine = function () {
-                new Valine({"enable": true, "el": "#vcomments", "appId": "foKPLEXsBJn05qaWV4zjRd0Q-MdYXbMMI", "appKey": "3mddA3xrDkeiX7XwkGHgCF2l", "serverURLs": "https://foKPLEXs.api.lncldglobal.com"});
+                new Valine({"enable": true, "el": "#vcomments", "appId": "foKPLEXsBJn05qaWV4zjRd0Q-MdYXbMMI", "appKey": "3mddA3xrDkeiX7XwkGHgCF2l", "serverURLs": "https://foKPLEXs.api.lncldglobal.com", "visitor": "true"});
             }
         </script>
-        <script defer src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js' onload="initValine()"></script>
+        <script defer src='https://unpkg.com/valine/dist/Valine.min.js' onload="initValine()"></script>
         <div id="vcomments"></div>
     
 
