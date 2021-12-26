@@ -97,11 +97,15 @@ $$
 (1-\delta_S^\text{min})\lVert\boldsymbol{x}\lVert_F^2\leq\lVert\bold{A}\boldsymbol{x}\lVert_F^2\leq(1+\delta_S^\text{max})\lVert\boldsymbol{x}\lVert_F^2
 $$
 的矩阵$\boldsymbol{A}\in\mathbb{R}^{M\times N}$被称为满足限制等长性（restricted isometry property, RIP）
-其中$0&lt;\delta_S^\text{min}&lt;\delta_S^\text{max}$被称为限制等长系数。</p><hr />
-<h2>限定等长系数的计算方法</h2>
-<section class="footnotes">
+其中$0&lt;\delta_S^\text{min}&lt;\delta_S^\text{max}$被称为限制等长系数（restricted isometry constants, RIC）。</p><hr />
+<h2>限定等长系数$\delta_S$的基本计算方法</h2>
+<p>限定等长系数$\delta_S$的计算式<sup class="footnote-ref" id="fnref-2"><a href="#fn-2">2</a></sup>：
+$$
+\delta_S=\text{max}{1-\text{min}<em>{T:T\subseteq V,\vert T\vert=S}\lambda</em>\text{min}(A_T^TA_T),\text{max}<em>{T:T\subseteq V,\vert T\vert=S}\lambda</em>\text{max}(A_T^TA_T)}
+$$</p><section class="footnotes">
 <ol>
-<li id="fn-1"><p>Sakata2015<a href="#fnref-1" class="footnote">&#8617;</a></p></li>
+<li id="fn-1"><p>A. Sakata, &quot;レプリカ法による制限等長定数の評価,&quot; SITA2015, (2015)<a href="#fnref-1" class="footnote">&#8617;</a></p></li>
+<li id="fn-2"><p>A. Sakata, &quot;制限等長定数評価における RSB 転移,&quot; JSP2015, (2015)<a href="#fnref-2" class="footnote">&#8617;</a></p></li>
 </ol>
 </section>
 
