@@ -19,8 +19,7 @@ valine = {
     "el": '#vcomments',
     "appId": "foKPLEXsBJn05qaWV4zjRd0Q-MdYXbMMI",
     "appKey": "3mddA3xrDkeiX7XwkGHgCF2l",
-    "serverURLs": "https://foKPLEXs.api.lncldglobal.com",
-    "visitor": "true"
+    "serverURLs": "https://foKPLEXs.api.lncldglobal.com"
 }
 enable_jsdelivr = {
     "enabled": True,
