@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Maverick,Galileo,blog" />
+    <meta name="generator" content="Maverick 1.2.1" />
+    <meta name="template" content="Galileo" />
+    <link rel="alternate" type="application/rss+xml" title="搞点儿技术总结 &raquo; RSS 2.0" href="/feed/index.xml" />
+    <link rel="alternate" type="application/atom+xml" title="搞点儿技术总结 &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1uci3n/weilantian.net@gh-pages/assets/galileo-3f4dcc35c9.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1uci3n/weilantian.net@gh-pages/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1uci3n/weilantian.net@gh-pages/assets/katex.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700&display=swap">
+    <script>
+        var ExSearchConfig = {
+            root: "",
+            api: "https://cdn.jsdelivr.net/gh/1uci3n/weilantian.net@gh-pages/1b0ecc1a6060d0ef2ebf845bf9992f90.json"
+        }
+    </script>
+    
+<title>ALOHA与泊松分布 - 搞点儿技术总结</title>
+<meta name="author" content="魏蓝天" />
+<meta name="description" content="ALOHA协议的吞吐量与泊松分布的理论推导" />
+<meta property="og:title" content="ALOHA与泊松分布 - 搞点儿技术总结" />
+<meta property="og:description" content="ALOHA协议的吞吐量与泊松分布的理论推导" />
+<meta property="og:site_name" content="搞点儿技术总结" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/Mac/" />
+<meta property="og:image" content="" />
+<meta property="article:published_time" content="2022-12-27T12:45:00-00.00" />
+<meta name="twitter:title" content="ALOHA与泊松分布 - 搞点儿技术总结" />
+<meta name="twitter:description" content="ALOHA协议的吞吐量与泊松分布的理论推导" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="" />
+
+
+    
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/1uci3n/weilantian.net@gh-pages/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+
+    </head>
+    
+    <body>
+        
+        <div class="container">
+            <header id="ga-header">
+                <div first>
+                    <aside id="ga-brand">
+                        <h1 class="brand"><a class="no-style" href="/">搞点儿技术总结</a></h1>
+                        <p>就搞点儿研究吧,您叻</p>
+                    </aside>
+                </div>
+                <div second id="ga-nav">
+                    <nav class="navs">
+                        <ul><li><a class="ga-highlight" href="/" target="_self">首页</a></li><span class="separator">·</span><li><a class="ga-highlight" href="/archives/" target="_self">归档</a></li><span class="separator">·</span><li><a class="ga-highlight" href="/about/" target="_self">关于</a></li><span class="separator">·</span><li><a href="#" target="_self" class="search-form-input ga-highlight">搜索</a></li></ul>
+                    </nav>
+                </div>
+            </header>
+            <div class="wrapper">
+                
+<main>    
+    <section class="ga-section ga-content">
+        <article class="yue">
+            <h1 class="ga-post_title">ALOHA与泊松分布</h1>
+            <span class="ga-post_meta ga-mono">
+                <span>魏蓝天</span>
+                <time>
+                    2022-12-27
+                </time>
+                
+                in <a no-style class="category" href="/category/MAC/">
+                    MAC
+                </a>
+                
+                
+            </span>
+            <div class="ga-content_body">
+                <h2>ALOHA协议</h2>
+<p>ALOHA协议的背景及用途：略</p><p>ALOHA协议的基本流程：</p><ol>
+<li>当有需要发送的数据包时（此处称之为数据包可能不严谨，但是本文全用数据包来指代这个要发送的数据），直接发送。</li>
+<li>接收端收到数据包时回复ACK，如果发送端没有接收到ACK经过随机的时间之后重发之前的数据包。</li>
+</ol>
+<p>这种通信方式在多个用户与同一接收端进行通信时可能会引起混乱（碰撞，collision ）。
+接下来通过排队论（queuing/queueing theory）分析ALOHA协议的效率。</p><h2>排队论与泊松分布<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup></h2>
+<p>假定随机生成的数据包有以下性质：</p><ol>
+<li>数据包的生成概率与时间无关（无记忆性）</li>
+<li>$1$单位时间平均有$\lambda$个数据包被发送</li>
+</ol>
+<p>首先考虑一定时间内不产生数据包的概率，例如对于时刻$0,x,y,(0&lt;x&lt;y)$:</p><p>$p(0,x)$是$0$到$x$的时间段内不产生数据包的概率</p><p>$p(x,y)$是$x$到$y$的时间段内不产生数据包的概率</p><p>$p(0,y)$是$0$到$y$的时间段内不产生数据包的概率</p><p>此时我们有
+$$
+p(0,x)\cdot p(x,y)=p(0,y)
+$$
+又由于无记忆性（概率只与时间段的长短相关，与时刻无关）：
+$$
+p(x,y)=p(0,y-x),\text{（时间段长度均为$y-x$）}
+$$</p><section class="footnotes">
+<ol>
+<li id="fn-1"><p><a href="http://edu.net.c.dendai.ac.jp/net/2005/9/index.xml">http://edu.net.c.dendai.ac.jp/net/2005/9/index.xml</a><a href="#fnref-1" class="footnote">&#8617;</a></p></li>
+</ol>
+</section>
+
+            </div>
+        </article>
+        <div id="ga-tags">
+    
+    <span class="ga-tag">
+        <a class="ga-highlight" href="/tag/MAC/">#MAC</a>
+    </span>
+    
+    <span class="ga-tag">
+        <a class="ga-highlight" href="/tag/ALOHA/">#ALOHA</a>
+    </span>
+    
+    <span class="ga-tag">
+        <a class="ga-highlight" href="/tag/%E5%88%86%E5%B8%83/">#分布</a>
+    </span>
+    
+</div>
+    </section>
+
+    
+<section id="ga-content_pager">
+
+    <div class="next">
+        <h3>没有了</h3>
+        <p class="yue">这是最新的文章</p>
+    </div>
+
+
+    <div class="prev">
+        <a class="ga-highlight" href="/archives/ric/">限定等长系数的计算方法</a>
+        <p class="yue">压缩感知领域中观测矩阵的经典评价方法：限定等长系数。限定等长系数的定义与基本计算方法</p>
+    </div>
+
+</section>
+
+
+    
+        <script>
+            var initValine = function () {
+                new Valine({"enable": true, "el": "#vcomments", "appId": "foKPLEXsBJn05qaWV4zjRd0Q-MdYXbMMI", "appKey": "3mddA3xrDkeiX7XwkGHgCF2l", "serverURLs": "https://foKPLEXs.api.lncldglobal.com"});
+            }
+        </script>
+        <script defer src='https://unpkg.com/valine/dist/Valine.min.js' onload="initValine()"></script>
+        <div id="vcomments"></div>
+    
+
+</main>
+
+                <footer class="ga-mono" id="ga-footer">
+                    <section>
+                        <span id="ga-uptime"></span>
+                        <span class="brand">搞点儿技术总结</span>
+                    </section>
+                    <section>
+                        <p class="copyright">
+                            <span>Copyright © 2022 魏蓝天</span>
+                            <span>Powered by <a no-style href="https://github.com/AlanDecode/Maverick" target="_blank">Maverick & Galileo</a></span>
+                        </p>
+                        <div class="copyright">
+                            <span class="footer-addon">
+                                
+                            </span>
+                            <nav class="social-links">
+                                <ul><li><a class="no-style" title="GitHub" href="https://github.com/1uci3n" target="_blank"><i class="gi gi-github"></i>GitHub</a></li><span class="separator">·</span><li><a class="no-style" title="Google Scholar" href="https://scholar.google.com/citations?hl=ja&user=I5PJIJ4AAAAJ" target="_blank"><i class="gi gi-google-scholar"></i>Google Scholar</a></li></ul>
+                            </nav>
+                        </div>
+                    </section>
+                    <script>
+                        var site_build_date = "2021-12-13T16:15+09:00"
+                    </script>
+                    <script src="https://cdn.jsdelivr.net/gh/1uci3n/weilantian.net@gh-pages/assets/galileo-dc4baa7cf4.js"></script>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!--katex-->
+    <script defer src="https://cdn.jsdelivr.net/gh/1uci3n/weilantian.net@gh-pages/assets/katex.min.js"></script>
+    <script>
+    mathOpts = {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/gh/1uci3n/weilantian.net@gh-pages/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/1uci3n/weilantian.net@gh-pages/assets/ExSearch/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/1uci3n/weilantian.net@gh-pages/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+
+    
+    </body>
+</html>
